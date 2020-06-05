@@ -12,7 +12,7 @@ export class UserdataService {
 
   getUserList():Observable<any>{
 
-    return this.http.get('http://localhost:8080/user/userlist')
+    return this.http.get('http://localhost:8081/user/userlist')
   }
    
 }
