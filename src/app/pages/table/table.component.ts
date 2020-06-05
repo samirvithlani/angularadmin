@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserdataService } from 'app/userdata.service';
 
 declare interface TableData {
     headerRow: string[];
@@ -14,8 +15,18 @@ declare interface TableData {
 export class TableComponent implements OnInit{
     public tableData1: TableData;
     public tableData2: TableData;
+    constructor(private service: UserdataService) { }
     ngOnInit(){
-        this.tableData1 = {
+        
+        this.service.getUserList().subscribe(res=>{
+
+            this.tableData1 =res;
+            console.log("users..",this.tableData1);
+        })
+
+
+        /*
+         this.tableData1 = {
             headerRow: [ 'ID', 'Name', 'Country', 'City', 'Salary'],
             dataRows: [
                 ['1', 'Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
@@ -26,6 +37,7 @@ export class TableComponent implements OnInit{
                 ['6', 'Mason Porter', 'Chile', 'Gloucester', '$78,615']
             ]
         };
+        */ 
         this.tableData2 = {
             headerRow: [ 'ID', 'Name',  'Salary', 'Country', 'City' ],
             dataRows: [
