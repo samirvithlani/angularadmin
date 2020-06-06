@@ -27,6 +27,7 @@ export class TableComponent implements OnInit{
     constructor(private service: UserdataService) { }
     ngOnInit(){
         
+        console.log("ng on init called...")
         this.service.getUserList().subscribe(res=>{
 
             this.tableData1 =res;
