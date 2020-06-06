@@ -4,6 +4,15 @@ import { UserdataService } from 'app/userdata.service';
 declare interface TableData {
     headerRow: string[];
     dataRows: string[][];
+   /*  uId:number;
+    uName:string;
+    uEmail:string;
+    uPassword:string;
+    countryId:number;
+    cityId:number;
+    salary:number, */
+
+
 }
 
 @Component({
@@ -13,7 +22,7 @@ declare interface TableData {
 })
 
 export class TableComponent implements OnInit{
-    public tableData1: TableData;
+    public tableData1: Array<any>;
     public tableData2: TableData;
     constructor(private service: UserdataService) { }
     ngOnInit(){
